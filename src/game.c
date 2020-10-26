@@ -33,5 +33,19 @@ int check_user_answer(char* user_answer)//Проверяет ответ поль
             return a;
         }
     }
+    return check_duplicate_number(user_answer);
+}
+
+int check_duplicate_number(char* user_answer)
+{
+    int a = 0;
+    for (int i = 0; i < 3; i++) {
+        if (user_answer[i] == user_answer[i + 1]) {
+            a = 12;
+            return 12;
+        } else {
+            a++;
+        }
+    }
     return 0;
 }

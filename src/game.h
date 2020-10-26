@@ -5,4 +5,5 @@
 #include <stdlib.h>
 int game();
 int check_user_answer(char* user_answer);
+int check_duplicate_number(char* user_answer);
 #endif
