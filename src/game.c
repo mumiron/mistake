@@ -38,13 +38,23 @@ int check_user_answer(char* user_answer)//Проверяет ответ поль
 
 int check_duplicate_number(char* user_answer)
 {
+    int array[4] = {0};
+    for (int i = 0; i < 4; i++) {
+        char array_1[1];
+        array_1[0] = user_answer[i];
+        array[i] = atoi(array_1);
+    }
     int a = 0;
-    for (int i = 0; i < 3; i++) {
-        if (user_answer[i] == user_answer[i + 1]) {
-            a = 12;
+    for (int i = 0; i < 4;) {
+        if (i == 0) {
+            a = array[i];
+        }
+        if (a == array[i + 1]) {
             return 12;
+        } else if (i != 4) {
+            i++;
         } else {
-            a++;
+            i++;
         }
     }
     return 0;
