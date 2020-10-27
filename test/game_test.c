@@ -25,6 +25,66 @@ CTEST(check_user_answer, correct_answer_2)
     ASSERT_EQUAL(expected, result);
 }
 
+CTEST(check_duplicate_number, correct_answer_1)
+{
+    char user_answer[4];
+    user_answer[0] = '1';
+    user_answer[1] = '2';
+    user_answer[2] = '3';
+    user_answer[3] = '4';
+    const int result = check_duplicate_number(user_answer);
+    const int expected = 0;
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(check_duplicate_number, correct_answer_2)
+{
+    char user_answer[4];
+    user_answer[0] = '6';
+    user_answer[1] = '5';
+    user_answer[2] = '0';
+    user_answer[3] = '9';
+    const int result = check_duplicate_number(user_answer);
+    const int expected = 0;
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(check_duplicate_number, incorrect_answer_1)
+{
+    char user_answer[4];
+    user_answer[0] = '6';
+    user_answer[1] = '6';
+    user_answer[2] = '8';
+    user_answer[3] = '9';
+    const int result = check_duplicate_number(user_answer);
+    const int expected = 12;
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(check_duplicate_number, incorrect_answer_2)
+{
+    char user_answer[4];
+    user_answer[0] = '6';
+    user_answer[1] = '4';
+    user_answer[2] = '6';
+    user_answer[3] = '9';
+    const int result = check_duplicate_number(user_answer);
+    const int expected = 12;
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(check_duplicate_number, incorrect_answer_3)
+{
+    char user_answer[4];
+    user_answer[0] = '0';
+    user_answer[1] = '0';
+    user_answer[2] = '0';
+    user_answer[3] = '0';
+    const int result = check_duplicate_number(user_answer);
+    const int expected = 12;
+    ASSERT_EQUAL(expected, result);
+}
+
 CTEST(check_user_answer, incorrect_answer_1)
 {
     char user_answer[4];
