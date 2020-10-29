@@ -15,7 +15,7 @@ int game()
     //      printf("%d\n", user_answer[i]);
     //  }
     // educ_in_the_int_type(user_answer);
-    // generate();
+    generate();
     return_check_user_answer = check_user_answer(user_answer);
     if (return_check_user_answer == 12) {
         printf("\nВы ввели что-то другое...\n");
@@ -24,20 +24,34 @@ int game()
     return 0;
 }
 
-// int generate()
-//{
-//  int generate_array[5] = {0};
-// int generate_number = 123;
-// for (int i = 0; i < 4;) {
-//  srand(time(NULL));
-//  generate_number = rand() % 10;
-//  generate_array[i] = 1;
-//  i++;
-//  printf("lox %d\n", generate_array[i]);
-//}
-// printf("ky %d\n", generate_number);
-// return 0;
-//}
+int generate()
+{
+    int generate_array[4] = {0};
+    bool return_check_generate_number = false;
+    srand(time(NULL));
+    while (return_check_generate_number != true) {
+        for (int i = 0; i < 4; i++) {
+            generate_array[i] = rand() % 10;
+        }
+        for (int i = 0; i < 4; i++) {
+            printf("%d lox %d \n", generate_array[i], i);
+        }
+        return_check_generate_number = check_duplicate(generate_array);
+    }
+    return 0;
+}
+
+bool check_duplicate(int* generate_array)
+{
+    for (int i = 0; i < 3; i++) {
+        for (int j = i + 1; j < 4; j++) {
+            if (generate_array[i] == generate_array[j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 // int educ_in_the_int_type(char* user_answer)
 //{
@@ -66,10 +80,10 @@ int check_user_answer(char* user_answer)//Проверяет ответ поль
             return a;
         }
     }
-    return check_duplicate_number(user_answer);
+    return check_duplicate_user_number(user_answer);
 }
 
-int check_duplicate_number(char* user_answer)
+int check_duplicate_user_number(char* user_answer)
 {
     int array[4] = {0};
     for (int i = 0; i < 4; i++) {
@@ -77,19 +91,8 @@ int check_duplicate_number(char* user_answer)
         array_1[0] = user_answer[i];
         array[i] = atoi(array_1);
     }
-    int a = 0, b = 0;
-    for (int i = 0; i < 3;) {
-        if (i == 0) {
-            a = array[b];
-        }
-        if (a == array[i + 1]) {
-            return 12;
-        } else if (i == 3) {
-            i = 0;
-            b++;
-        } else {
-            i++;
-        }
+    if (check_duplicate(array) == false) {
+        return 12;
     }
     return 0;
 }
