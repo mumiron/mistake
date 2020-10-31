@@ -6,7 +6,7 @@ int game()
 {
     int return_check_user_answer = 0;
     char user_answer[1000];
-    printf("Игра начинается!Ведите цифры числа:\n");
+    printf("Введите цифры числа:\n");
     for (int i = 0; i < 4; i++) {
         printf("\nВведите %d-ую цифру числа: ", i + 1);
         scanf("%s", &user_answer[i]);
@@ -53,21 +53,20 @@ bool check_duplicate(int* generate_array)
     return true;
 }
 
-// int educ_in_the_int_type(char* user_answer)
-//{
-//  int array;
-//  array = atoi(user_answer);
-//  printf("%d\n", array);
-//  int array_9[4] = {0};
-//  array_9[0] = array / 1000;
-//  array_9[1] = (array / 100) % 10;
-//  array_9[2] = (array % 100) / 10;
-//  array_9[3] = array % 10;
-//  for (int i = 0; i < 4; i++) {
-//    printf("%d", array_9[i]);
-//  }
-//  return 0;
-//}
+void educ_in_the_int_type(char* user_answer)
+{
+    int array;
+    array = atoi(user_answer);
+    printf("%d\n", array);
+    int array_9[4] = {0};
+    array_9[0] = array / 1000;
+    array_9[1] = (array / 100) % 10;
+    array_9[2] = (array % 100) / 10;
+    array_9[3] = array % 10;
+    for (int i = 0; i < 4; i++) {
+        printf("%d", array_9[i]);
+    }
+}
 
 int check_user_answer(char* user_answer)//Проверяет ответ пользователя на мусор и буквы.
 {
