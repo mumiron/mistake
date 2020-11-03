@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int counter = 0;
-int generate_number[4] = {0};
 int game();
 int check_user_answer(char* user_answer);
 int check_duplicate_user_number(char* user_answer);

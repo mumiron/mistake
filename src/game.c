@@ -1,5 +1,7 @@
 #include "game.h"
 
+int counter = 0;
+int generate_number[4] = {0};
 int game()
 {
     int return_check_user_answer = 0;
