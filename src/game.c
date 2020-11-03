@@ -29,12 +29,6 @@ int collect(char* user_answer, int* generate_number)
         generate(generate_number);
         counter++;
     }
-    for (int i = 0; i < 4; i++) {
-        printf("User =%d\n", user_array[i]);
-    }
-    for (int i = 0; i < 4; i++) {
-        printf("generate=%d\n", generate_number[i]);
-    }
     compare(user_array, generate_number);
     return 0;
 }
@@ -82,9 +76,6 @@ int generate(int* generate_number)
     while (return_check_generate_number != true) {
         for (int i = 0; i < 4; i++) {
             generate_number[i] = rand() % 10;
-        }
-        for (int i = 0; i < 4; i++) {
-            printf("%d lox %d \n", generate_number[i], i);
         }
         return_check_generate_number = check_duplicate(generate_number);
     }
